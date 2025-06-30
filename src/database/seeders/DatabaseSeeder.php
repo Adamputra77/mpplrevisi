@@ -15,20 +15,20 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $user = \App\Models\User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
         ]);
 
         $user->assignRole('super_admin');
 
-       $this->call([
-            DimDateSeeder::class,
-            DimProductSeeder::class,
-            DimCustomerSeeder::class,
-            DimStoreSeeder::class,
-            DimStaffSeeder::class,
-            FactSalesSeeder::class,
+        $this->call([
+            DimWaktuSeeder::class,
+            DimDepartemenSeeder::class,
+            DimAkunSeeder::class,
+            DimProyekSeeder::class,
+            DimWilayahSeeder::class,
+            FactKeuanganSeeder::class,
         ]);
 
     }
