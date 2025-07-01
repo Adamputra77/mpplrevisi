@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
+use App\Http\Controllers\ExportController;
 
 /* NOTE: Do Not Remove
 / Livewire asset handling if using sub folder in domain
@@ -16,6 +17,13 @@ Livewire::setScriptRoute(function ($handle) {
 /*
 / END
 */
+
+// Halaman awal
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Export PDF & Excel Laporan Keuangan
+Route::get('/export/fact-keuangan/pdf', [ExportController::class, 'exportPDF']);
+Route::get('/export/fact-keuangan/excel', [ExportController::class, 'exportExcel']);
+        
